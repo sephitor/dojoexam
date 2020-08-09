@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Register</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+
+
+</head>
+<body>
+
+
+	<br>
+
+	<br>
+
+	<div th:if="${error != null}">
+		<div class="alert alert-danger" th:text="${error}"></div>
+	</div>
+
+	<div class="container col-11 offset-1 ">
+
+		<div class="row">
+
+			<div class="col-lg-5">
+
+
+				<form th:action="@{/crearLender}" th:object="${lender}"
+					method="POST">
+
+					<div class="card">
+						<div class="card-header">
+							<h3>Lender</h3>
+						</div>
+						<div class="card-body">
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">First Name: </label>
+								<div class="col-lg-9">
+									<input th:field="*{firstname}" type="text" class="form-control" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Last Name: </label>
+								<div class="col-lg-9">
+									<input th:field="*{lastname}" type="text" class="form-control" />
+								</div>
+							</div>
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Email: </label>
+								<div class="col-lg-9">
+									<input th:field="*{email}" type="text" class="form-control" />
+								</div>
+							</div>
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Password: </label>
+								<div class="col-lg-9">
+									<input th:field="*{password}" type="text" class="form-control" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Confirm Password:
+								</label>
+								<div class="col-lg-9">
+									<input th:field="*{passwordConfirmation}" type="text"
+										class="form-control" />
+								</div>
+							</div>
+
+
+
+							<!--  Controles que solo tiene LENDER -->
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Money: </label>
+								<div class="col-lg-4">
+									<input th:field="*{money}" type="text"
+										class="form-control text-right" />
+								</div>
+							</div>
+
+						</div>
+						<div class="card-footer">
+
+							<a class="float-left" th:href="@{/login}">Already a member?</a> <input
+								type="submit" value="Register"
+								class="btn btn-success float-right" />
+
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+
+			<div class="col-lg-1"></div>
+
+			<div class="col-lg-5">
+
+				<form th:action="@{/crearBorrower}" th:object="${borrower}"
+					method="POST">
+
+					<div class="card">
+						<div class="card-header">
+							<h3>Borrower</h3>
+						</div>
+						<div class="card-body">
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">First Name: </label>
+								<div class="col-lg-9">
+									<input th:field="*{firstname}" type="text" class="form-control" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Last Name: </label>
+								<div class="col-lg-9">
+									<input th:field="*{lastname}" type="text" class="form-control" />
+								</div>
+							</div>
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Email: </label>
+								<div class="col-lg-9">
+									<input th:field="*{email}" type="text" class="form-control" />
+								</div>
+							</div>
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Password: </label>
+								<div class="col-lg-9">
+									<input th:field="*{password}" type="text" class="form-control" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Confirm Password:
+								</label>
+								<div class="col-lg-9">
+									<input th:field="*{passwordConfirmation}" type="text"
+										class="form-control" />
+								</div>
+							</div>
+
+
+							<!-- Datos que solo tiene borrower -->
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Need Money for: </label>
+								<div class="col-lg-9">
+									<input th:field="*{needfor}" type="text" class="form-control" />
+								</div>
+							</div>
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Description: </label>
+								<div class="col-lg-9">
+									<textarea th:field="*{description}" class="form-control" /></textarea>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label">Amount Needed: </label>
+								<div class="col-lg-4">
+									<input th:field="*{needed}" type="text"
+										class="form-control text-right" />
+								</div>
+							</div>
+
+
+
+
+						</div>
+						<div class="card-footer">
+
+							<a class="float-left" th:href="@{/login}">Already a member?</a> <input
+								type="submit" value="Register"
+								class="btn btn-success float-right" />
+
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>
