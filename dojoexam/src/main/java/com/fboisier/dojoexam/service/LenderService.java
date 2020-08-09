@@ -20,6 +20,7 @@ public class LenderService {
 	 public Lender registerLender(Lender lender) {
 	        String hashed = BCrypt.hashpw(lender.getPassword(), BCrypt.gensalt());
 	        lender.setPassword(hashed);
+	        lender.setBalance(lender.getMoney());
 	        return lenderRepository.save(lender);
     }
 	 
